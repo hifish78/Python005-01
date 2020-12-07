@@ -1,10 +1,8 @@
-import datetime
 import logging
 import os
 import time
 
-# PATH_BASE = "/var/log/"
-PATH_BASE = "/Users/ayu/"
+PATH_BASE = "/var/log/"
 LOG_FILE_NAME = "func.log"
 
 
