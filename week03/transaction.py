@@ -1,3 +1,29 @@
+"""
+CREATE TABLE `user` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `user_asset` (
+  `user_id` int NOT NULL,
+  `asset_amount` int DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  CONSTRAINT `user_asset_ibfk_1`
+  FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+     ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `audit` (
+  `transaction_id` int NOT NULL AUTO_INCREMENT,
+  `from_id` int DEFAULT NULL,
+  `to_id` int DEFAULT NULL,
+  `transfer_amount` int DEFAULT NULL,
+  `transfer_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`transaction_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+"""
 from datetime import datetime
 
 from sqlalchemy import Column, String, Integer, Float, create_engine, ForeignKey, DateTime
